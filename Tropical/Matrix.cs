@@ -2,9 +2,9 @@
 
 namespace Tropical
 {
-    class Matrix
+    class Matrix<T>
     {
-        private double[] _data;
+        private T[] _data;
 
         public int Width { get; private set; }
 
@@ -21,14 +21,14 @@ namespace Tropical
             Width = w;
             Height = h;
 
-            _data = new double[w * h];
+            _data = new T[w * h];
         }
 
-        public static Matrix StandardAddition(Matrix a, Matrix b)
+        public static Matrix<T> operator+ (Matrix<T> a, Matrix<T> b)
         {
             if (a.Width != b.Width || a.Height != b.Height) throw new Exception();
 
-            var result = new Matrix(a.Width, a.Height);
+            var result = new Matrix<T>(a.Width, a.Height);
             for (int i = 0; i < result._data.Length; i++)
             {
                 result._data[i] = a._data[i] + b._data[i];
@@ -37,7 +37,7 @@ namespace Tropical
             return result;
         }
 
-        public static Matrix StandardMultiplication(Matrix a, Matrix b)
+        public static Matrix operator(Matrix a, Matrix b)
         {
 
         }
