@@ -6,12 +6,38 @@ namespace Tropical
     {
         static void Main(string[] args)
         {
-            var a = new Matrix<int>(new int[,] { { 1, 2, 3 }, { 4, 5, 6 } });
-            var b = new Matrix<int>(new int[,] { { 7, 8, 9 }, { 10, 11, 12 } });
+            Matrix<double>.Add = (t1, t2) => Math.Min(t1, t2);
+            Matrix<double>.Multiply = (t1, t2) => t1 + t2;
+            
+            var a = new Matrix<double>(new double[,] {
+{double.PositiveInfinity,   1,  10, double.PositiveInfinity,    double.PositiveInfinity,    double.PositiveInfinity,    double.PositiveInfinity},
+{5, double.PositiveInfinity,    1,  6,  7,  double.PositiveInfinity,    double.PositiveInfinity},
+{10,    3,  double.PositiveInfinity,    7,  double.PositiveInfinity,    1,  double.PositiveInfinity},
+{double.PositiveInfinity,   6,  7,  double.PositiveInfinity,    3,  double.PositiveInfinity,    5},
+{double.PositiveInfinity,   7,  double.PositiveInfinity,    3,  double.PositiveInfinity,    double.PositiveInfinity,    7},
+{double.PositiveInfinity,   double.PositiveInfinity,    8,  double.PositiveInfinity,    double.PositiveInfinity,    double.PositiveInfinity,    1},
+{double.PositiveInfinity,   double.PositiveInfinity,    double.PositiveInfinity,    5,  7,  8,  0}}
+);
 
-            var c = a + b;
+            Console.WriteLine(a[6, 0]);
 
-            var d = c[1, 2];
+            a = a * a;
+            Console.WriteLine(a[6, 0]);
+
+            a = a * a;
+            Console.WriteLine(a[6, 0]);
+
+            a = a * a;
+            Console.WriteLine(a[6, 0]);
+
+            a = a * a;
+            Console.WriteLine(a[6, 0]);
+
+            a = a * a;
+            Console.WriteLine(a[6, 0]);
+
+            a = a * a;
+            Console.WriteLine(a[6, 0]);
         }
     }
 }

@@ -68,7 +68,9 @@ namespace Tropical
             {
                 for (int x = 0; x < b.Width; x++)
                 {
-                    for (int i = 0; i < a.Width; i++)
+                    result[y, x] = Multiply(a[y, 0], b[0, x]);
+
+                    for (int i = 1; i < a.Width; i++)
                     {
                         result[y, x] = Add(result[y, x], Multiply(a[y, i], b[i, x]));
                     }
